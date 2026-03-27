@@ -100,7 +100,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
   defaultPlan = "premium"
 }) => {
   const [selectedPlan, setSelectedPlan] = useState<string>(defaultPlan);
-  const [timeLeft, setTimeLeft] = useState<number>(3600); // 1 hour countdown
+  const [timeLeft, setTimeLeft] = useState<number>(3600);
   
   useEffect(() => {
     if (timeLeft <= 0) return;
@@ -123,9 +123,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
   const currentPlan = plans.find(plan => plan.id === selectedPlan) || plans[0];
   
   return (
-    <section className="w-full py-24 px-6 md:px-10 bg-black relative overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+    <section className="w-full py-24 px-6 md:px-10 bg-black relative overflow-hidden"><div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[5%] left-[5%] w-[30rem] h-[30rem] rounded-full bg-blue-600/15 blur-[120px] animate-pulse"></div>
         <div className="absolute bottom-[10%] right-[10%] w-[28rem] h-[28rem] rounded-full bg-indigo-600/15 blur-[120px] animate-pulse" style={{ animationDelay: "2.5s" }}></div>
         <div className="absolute top-[40%] right-[25%] w-[25rem] h-[25rem] rounded-full bg-purple-600/15 blur-[120px] animate-pulse" style={{ animationDelay: "4s" }}></div>
@@ -273,16 +271,10 @@ const PricingSection: React.FC<PricingSectionProps> = ({
               </TabsContent>
             ))}
           </Tabs>
-        </div>
-
-        {/* Trust badges */}
-        <div className="mt-16 text-center text-gray-400 text-sm">
+        </div><div className="mt-16 text-center text-gray-400 text-sm">
           <p className="font-medium">Mais de 10.000 clientes satisfeitos • Avaliação média de 4.9/5</p>
         </div>
-      </div>
-
-      {/* Fixed bottom CTA */}
-      <div className="fixed bottom-6 left-0 right-0 z-50 flex justify-center px-4">
+      </div><div className="fixed bottom-6 left-0 right-0 z-50 flex justify-center px-4">
         <Dialog>
           <DialogTrigger asChild>
             <Button className="max-w-md w-full py-5 text-base font-bold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-full shadow-xl flex items-center justify-center gap-9  mx-auto">

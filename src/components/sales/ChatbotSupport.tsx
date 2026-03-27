@@ -25,7 +25,6 @@ const ChatbotSupport: React.FC<ChatbotSupportProps> = ({
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Common questions and answers
   const faqResponses: Record<string, string> = {
     pagamento:
       "Aceitamos pagamentos via cartão de crédito, PIX e Stripe. Todos os métodos são 100% seguros e o acesso ao e-book é liberado imediatamente após a confirmação do pagamento.",
@@ -50,7 +49,6 @@ const ChatbotSupport: React.FC<ChatbotSupportProps> = ({
   };
 
   useEffect(() => {
-    // Add initial message when chat is first opened
     if (isOpen && messages.length === 0) {
       setMessages([
         {
@@ -64,14 +62,12 @@ const ChatbotSupport: React.FC<ChatbotSupportProps> = ({
   }, [isOpen, initialMessage, messages.length]);
 
   useEffect(() => {
-    // Scroll to bottom when new messages are added
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
   const handleSendMessage = () => {
     if (!inputValue.trim()) return;
 
-    // Add user message
     const userMessage: Message = {
       id: messages.length + 1,
       text: inputValue,
@@ -83,7 +79,6 @@ const ChatbotSupport: React.FC<ChatbotSupportProps> = ({
     setInputValue("");
     setIsTyping(true);
 
-    // Simulate bot thinking
     setTimeout(() => {
       const botResponse = generateResponse(inputValue);
       const botMessage: Message = {
@@ -101,14 +96,12 @@ const ChatbotSupport: React.FC<ChatbotSupportProps> = ({
   const generateResponse = (query: string): string => {
     const lowercaseQuery = query.toLowerCase();
 
-    // Check for keywords in the query
     for (const [keyword, response] of Object.entries(faqResponses)) {
       if (lowercaseQuery.includes(keyword)) {
         return response;
       }
     }
 
-    // Default responses for common questions
     if (
       lowercaseQuery.includes("olá") ||
       lowercaseQuery.includes("oi") ||
@@ -131,14 +124,11 @@ const ChatbotSupport: React.FC<ChatbotSupportProps> = ({
       return "Para comprar o e-book, basta clicar no botão 'Comprar agora' em qualquer seção da página. O pagamento é seguro e você terá acesso imediato após a confirmação.";
     }
 
-    // Fallback response
     return "Não tenho certeza se entendi sua pergunta. Você pode perguntar sobre pagamento, garantia, conteúdo do e-book, tempo para conseguir emprego, formato, atualizações, bônus inclusos, requisitos, suporte ou preço.";
   };
 
   return (
-    <>
-      {/* Chat button */}
-      <motion.div
+    <><motion.div
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 2, type: "spring" }}
@@ -150,10 +140,7 @@ const ChatbotSupport: React.FC<ChatbotSupportProps> = ({
         >
           <MessageSquare className="h-6 w-6" />
         </Button>
-      </motion.div>
-
-      {/* Chat window */}
-      <AnimatePresence>
+      </motion.div><AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, y: 20, scale: 0.9 }}
@@ -162,9 +149,7 @@ const ChatbotSupport: React.FC<ChatbotSupportProps> = ({
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
             className="fixed bottom-20 right-4 w-80 sm:w-96 bg-black rounded-lg shadow-2xl z-50 flex flex-col overflow-hidden border border-blue-800"
             style={{ maxHeight: "calc(100vh - 120px)" }}
-          >
-            {/* Chat header */}
-            <div className="bg-blue-900 text-white p-3 flex justify-between items-center border-b border-blue-800">
+          ><div className="bg-blue-900 text-white p-3 flex justify-between items-center border-b border-blue-800">
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
                   <MessageSquare className="h-4 w-4" />
@@ -180,10 +165,7 @@ const ChatbotSupport: React.FC<ChatbotSupportProps> = ({
               >
                 <X className="h-5 w-5" />
               </button>
-            </div>
-
-            {/* Chat messages */}
-            <div
+            </div><div
               className="flex-1 p-3 overflow-y-auto bg-gray-900"
               style={{ maxHeight: "300px" }}
             >
@@ -226,10 +208,7 @@ const ChatbotSupport: React.FC<ChatbotSupportProps> = ({
                 </div>
               )}
               <div ref={messagesEndRef} />
-            </div>
-
-            {/* Quick questions */}
-            <div className="p-2 border-t border-gray-700 bg-gray-900">
+            </div><div className="p-2 border-t border-gray-700 bg-gray-900">
               <p className="text-xs text-gray-400 mb-2">
                 Perguntas frequentes:
               </p>
@@ -249,10 +228,7 @@ const ChatbotSupport: React.FC<ChatbotSupportProps> = ({
                   ),
                 )}
               </div>
-            </div>
-
-            {/* Chat input */}
-            <div className="p-3 border-t border-gray-700 bg-gray-900">
+            </div><div className="p-3 border-t border-gray-700 bg-gray-900">
               <div className="flex items-center gap-2">
                 <input
                   type="text"

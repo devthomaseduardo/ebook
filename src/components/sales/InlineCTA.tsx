@@ -54,9 +54,7 @@ const InlineCTA: React.FC<InlineCTAProps> = ({
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
       className={`rounded-lg p-6 my-8 ${getVariantStyles()} relative overflow-hidden`}
-    >
-      {/* Background light effects */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+    ><div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[50%] left-[20%] w-40 h-40 rounded-full bg-blue-600/20 blur-[50px] animate-pulse"></div>
         <div
           className="absolute top-[30%] right-[20%] w-40 h-40 rounded-full bg-indigo-600/20 blur-[50px] animate-pulse"

@@ -1,4 +1,3 @@
-// [build] library: 'shadcn'
 import { Checkbox } from "../components/ui/checkbox";
 
 const meta = {

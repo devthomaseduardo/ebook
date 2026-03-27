@@ -1,4 +1,3 @@
-// [build] library: 'shadcn'
 import { FontItalicIcon, FontBoldIcon } from "@radix-ui/react-icons";
 import { Toggle } from "../components/ui/toggle";
 

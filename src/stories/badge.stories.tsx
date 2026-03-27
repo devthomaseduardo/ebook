@@ -1,4 +1,3 @@
-// [build] library: 'shadcn'
 import { Badge } from "../components/ui/badge";
 
 const meta = {

@@ -1,4 +1,3 @@
-// [build] library: 'shadcn'
 import { Calendar } from "../components/ui/calendar";
 import { CalendarIcon } from "@radix-ui/react-icons";
 

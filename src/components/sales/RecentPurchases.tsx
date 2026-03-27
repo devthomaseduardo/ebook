@@ -54,7 +54,7 @@ const RecentPurchases: React.FC<RecentPurchasesProps> = ({
       avatar: "/clientes/female(4).jpg",
     },
   ],
-  interval = 20000, // 15 segundos entre cada notificação
+  interval = 20000,
   showDuration = 3000, 
 }) => {
   const [currentPurchase, setCurrentPurchase] = useState<Purchase | null>(null);
@@ -65,12 +65,10 @@ const RecentPurchases: React.FC<RecentPurchasesProps> = ({
   useEffect(() => {
     if (isDismissed) return;
 
-    // Mostrar a primeira compra após 5 segundos da página carregar
     const initialTimeout = setTimeout(() => {
       showNextPurchase();
     }, 5000);
 
-    // Configurar o intervalo para mostrar as próximas compras
     const intervalId = setInterval(() => {
       showNextPurchase();
     }, interval);
@@ -88,7 +86,6 @@ const RecentPurchases: React.FC<RecentPurchasesProps> = ({
     setIsVisible(true);
     setCurrentIndex((prevIndex) => (prevIndex + 1) % purchases.length);
 
-    // Esconder após a duração definida
     setTimeout(() => {
       setIsVisible(false);
     }, showDuration);

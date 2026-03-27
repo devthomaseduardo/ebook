@@ -17,7 +17,6 @@ import RecentPurchases from "./sales/RecentPurchases";
 const Home: React.FC = () => {
   return (
     <div className="min-h-screen bg-black pt-10 relative overflow-hidden">
-      {/* Efeitos de luz de fundo */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[10%] left-[10%] w-96 h-96 rounded-full bg-blue-600/20 blur-[100px] animate-pulse"></div>
         <div
@@ -29,19 +28,10 @@ const Home: React.FC = () => {
           style={{ animationDelay: "4s" }}
         ></div>
       </div>
-      {/* Banner de Desconto */}
       <DiscountBanner />
-
-      {/* Barra Fixa de Compra */}
       <StickyBuyBar />
-
-      {/* Seção Hero */}
       <HeroSection />
-
-      {/* Seção de Problemas (Pain Points) */}
       <PainPointsSection />
-
-      {/* Inline CTA 1 */}
       <div className="container mx-auto px-4">
         <InlineCTA
           title="Pronto para superar esses desafios?"
@@ -56,16 +46,11 @@ const Home: React.FC = () => {
           }}
         />
       </div>
-
-      {/* Seção de Solução */}
       <div id="solution">
         <SolutionSection />
       </div>
-
-      {/* Seção de Benefícios */}
       <BenefitsSection />
-
-      {/* Inline CTA 2 */}
+      <BonusesSection />
       <div className="container mx-auto px-4">
         <InlineCTA
           title="Gostou dos benefícios?"
@@ -74,24 +59,17 @@ const Home: React.FC = () => {
           variant="primary"
         />
       </div>
-
-      {/* Seção de Preços */}
       <div id="pricing">
         <PricingSection />
       </div>
-
-      {/* Logotipos das Plataformas */}
       <PlatformLogos />
-
-      {/* Seção de Depoimentos */}
       <TestimonialsSection />
-
-
-      {/* Rodapé */}
+      <MobileTestimonials />
       <footer className="bg-gray-900 text-gray-400 py-12 text-center text-sm border-t border-gray-800">
         <div className="container mx-auto px-4">
           <p className="mb-4">
-            © {new Date().getFullYear()} Do Zero ao Primeiro Emprego em Programação. Todos os direitos reservados.
+            © {new Date().getFullYear()} Do Zero ao Primeiro Emprego em
+            Programação. Todos os direitos reservados.
           </p>
           <div className="flex justify-center space-x-4">
             <a href="#" className="hover:text-white transition-colors">
@@ -106,12 +84,7 @@ const Home: React.FC = () => {
           </div>
         </div>
       </footer>
-
-
-      {/* Suporte via Chatbot */}
       <ChatbotSupport />
-
-      {/* Compras Recentes */}
       <RecentPurchases />
     </div>
   );

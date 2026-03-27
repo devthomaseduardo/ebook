@@ -1,4 +1,3 @@
-// [build] library: 'shadcn'
 
 import { Skeleton } from "../components/ui/skeleton";
 

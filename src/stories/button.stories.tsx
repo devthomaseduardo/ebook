@@ -1,4 +1,3 @@
-// [build] library: 'shadcn'
 import { Loader2, Mail } from "lucide-react";
 
 import { Button } from "../components/ui/button";

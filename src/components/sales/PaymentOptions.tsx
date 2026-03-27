@@ -36,12 +36,24 @@ import {
   Shield,
 } from "lucide-react";
 
+export interface CheckoutPlan {
+  id: string;
+  name: string;
+  price: string;
+  originalPrice: string;
+  discount: string;
+  features: string[];
+  recommended?: boolean;
+}
+
 interface PaymentOptionsProps {
   onPaymentComplete?: () => void;
+  plan?: CheckoutPlan;
 }
 
 const PaymentOptions: React.FC<PaymentOptionsProps> = ({
   onPaymentComplete = () => console.log("Payment completed"),
+  plan,
 }) => {
   const [loading, setLoading] = useState(false);
   const [cardNumber, setCardNumber] = useState("");

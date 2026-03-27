@@ -1,4 +1,3 @@
-// [build] library: 'shadcn'
 import { Progress } from "../components/ui/progress";
 
 const meta = {

@@ -1,4 +1,3 @@
-// [build] library: 'shadcn'
 import { Label } from "../components/ui/label";
 import { Switch } from "../components/ui/switch";
 
